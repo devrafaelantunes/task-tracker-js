@@ -1,19 +1,17 @@
-export const Footer = () => {
+import {Link} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
+
+const Footer = () => {
+    const location = useLocation()
+
     return (
-    <h1>Footer</h1>
+        <footer>
+            <p>Copyright &copy; 2021 - dev@rafaelantun.es</p>
+            {location.pathname === '/' && <Link to="/about">About</Link>}
+        </footer>
     )
 }
 
-export const Name = ({name}) => {
-    return (
-        <h1 style={headingStyle}>Greetings {name}</h1>
-    )
-}
 
 
-const headingStyle =  {
-    color: 'red',
-    fontSize: '21px'
-}
-
-//export default Footer
+export default Footer
