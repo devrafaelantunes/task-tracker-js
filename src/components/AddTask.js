@@ -12,7 +12,12 @@ const AddTask = ({ onAdd }) => {
             alert('Please add a task')
             return
         }
-        
+
+        if(date.length < 10) {
+            alert('Please input date in this format XX/XX/XXXX')
+            return
+        }
+
         onAdd({task_name, date, reminder})
 
         setText('')
