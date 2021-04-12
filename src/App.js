@@ -21,7 +21,6 @@ const App = () => {
   
   const getTasks = async () => {
       const tasksFromServer = await fetchTasks()
-      console.log(tasksFromServer) // getting the tasks
       setTasks(tasksFromServer)
     }
 
