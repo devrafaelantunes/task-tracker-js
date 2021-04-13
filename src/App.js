@@ -63,11 +63,25 @@ const App = () => {
 
   //Toggle Reminder
   const toggleReminder = async (id) => {
-    const res = await fetch(`http://localhost:4000/api/task/${id}`, {
+    const res = await fetch(`http://localhost:4000/api/task/reminder/${id}`, {
       method: "PUT",
       headers: {
         'Content-type' : 'application/json'
-      }
+      },
+      assigns: "Teste"
+    })
+
+   getTasks()
+
+  }
+
+  const toggleComplete = async (id) => {
+    const res = await fetch(`http://localhost:4000/api/task/complete_task/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-type' : 'application/json'
+      },
+      assigns: "Teste"
     })
 
    getTasks()
@@ -83,7 +97,7 @@ const App = () => {
 
         <Route path='/' exact render={(props) => (
           <>
-            <Tasks tasks={tasks.data} onDelete={deleteTask} onToggle={toggleReminder}/> 
+            <Tasks tasks={tasks.data} onDelete={deleteTask} onToggle={toggleReminder} onToggleComplete={toggleComplete}/> 
           </>
         )}/>
         <Route path='/about' component={About}/>
