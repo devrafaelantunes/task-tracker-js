@@ -1,5 +1,3 @@
-//x ? 'Yes' : 'No'
-
 import {useState, useEffect} from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header'
@@ -8,7 +6,6 @@ import AddTask from './components/AddTask'
 import Footer from './components/Footer'
 import About from './components/About'
 import { getDefaultNormalizer } from '@testing-library/dom'
-//import { Footer, Name } from './components/Footer'
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false)
@@ -63,12 +60,12 @@ const App = () => {
 
   //Toggle Reminder
   const toggleReminder = async (id) => {
+    console.log(id)
     const res = await fetch(`http://localhost:4000/api/task/reminder/${id}`, {
       method: "PUT",
       headers: {
         'Content-type' : 'application/json'
       },
-      assigns: "Teste"
     })
 
    getTasks()
